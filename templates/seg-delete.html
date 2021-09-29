@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block page_title %}{{ object.segment_name }}削除確認{% endblock page_title %}
+
+{% block content %}
+    <div>
+        <p>以下のネットワークを削除しますか？<br>※IPアドレスも自動的に削除、開放されます</p>
+        <table class="table table-hover">
+            <thead>
+            <tr><th>ID</th><th>セグメント名</th><th>ネットワークアドレス</th><th>登録日</th><th>説明</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>{{ object.segment_id }}</td><td>{{ object.segment_name }}</td><td>{{ object.nw_address }}/{{ object.prefix }}</td><td>{{ object.register_date }}</td><td>{{ object.seg_description }}</td></tr>
+            </tbody>
+        </table>
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn btn-primary" type="submit">削除</button>
+            <a class="btn btn-primary" href="{% url 'ipledger:seglist' %}">キャンセル</a>
+        </form>
+    </div>
+{% endblock content %}

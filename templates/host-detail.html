@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">{{ object.hostname }}</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text">機器種別:{{ object.kinds }}</p>
+            <p class="card-text">説明:{{ object.host_description }}</p>
+            割当IPアドレス
+            <ol>
+            {% for item in object.v4addressmodels_set.all %}
+                <li>{{ item.address_type }} {{ item.host_address }} </li>
+            {% endfor %}
+            </ol>
+        </div>
+        <div class="card-footer text-muted">
+            登録日:{{ object.change_date }}
+        </div>
+    </div>
+{% endblock content %}

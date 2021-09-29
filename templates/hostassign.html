@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block page_title %}{{ object.host_address }}ホスト割当画面{% endblock page_title %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            {{ object.host_address }}にホスト割当
+        </div>
+        <div class="card-body">
+            <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+                <table class="table">
+            {% bootstrap_form form %}
+                </table>
+                <button class="btn btn-primary" type="submit">割当</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

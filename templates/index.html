@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block page_title %}Simple IPAM{% endblock page_title %}
+
+{% block content %}
+    <h1>Simple IP Address Manager</h1>
+
+    <h3>一覧ページ</h3>
+    <ul>
+        <li><a href="{% url 'ipledger:seglist' %}">セグメント一覧ページ</a></li>
+        <li><a href="{% url 'ipledger:iplist' %}">IPアドレス一覧ページ</a></li>
+        <li><a href="{% url 'ipledger:hostlist' %}">ホストアドレス一覧ページ</a></li>
+    </ul>
+    <h3>作成ページ</h3>
+    <ul>
+        <li><a href="{% url 'ipledger:segcreate' %}">セグメント作成ページ</a></li>
+        <li><a href="{% url 'ipledger:hostcreate' %}">ホスト作成ページ</a></li>
+    </ul>
+{% endblock content %}
