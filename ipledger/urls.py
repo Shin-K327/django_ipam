@@ -13,7 +13,7 @@ urlpatterns = [
     path('segdetail/<int:pk>', SegDetailView.as_view(), name='segdetail'),
     path('segdelete/<int:pk>', SegDeleteView.as_view(), name='segdelete'),
     path('hostdetail/<int:pk>', HostDetailView.as_view(), name='hostdetail'),
-    path('hostcreate/', HostGenericView.as_view(), name='hostcreate'),
+    path('hostcreate/', HostGenericOnlyView.as_view(), name='hostcreate'),
     path('hostupdate/<int:pk>', HostAssignView.as_view(), name='hostassign'),
     path('hostdelete/<int:pk>', HostDeleteView.as_view(), name='hostdelete')
 ]

@@ -43,7 +43,7 @@ class HostGenericOnlyView(CreateView):
     template_name = 'create-host.html'
     model = HostModels
     form_class = HostnameForm
-    success_url = reverse_lazy('ipledger:hostcreate')
+    success_url = reverse_lazy('ipledger:hostlist')
 
 
 class IpBaseListView(ListView):
@@ -77,7 +77,7 @@ class SegDetailView(ListView):
         unassign_list = request.POST.getlist('unassign')
         self.model.objects.filter(pk__in=unassign_list).update(fore_host=None)
         messages.success(request, '選択したホストの割当を解除しました')
-        return redirect('ipledger:segdetail', kwargs=kwargs['pk'])
+        return redirect('ipledger:segdetail', kwargs['pk'])
 
     def get_context_data(self):
         context = super().get_context_data()
